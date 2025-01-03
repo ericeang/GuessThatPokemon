@@ -1,3 +1,4 @@
+// Global variables
 let pokemonName = "";
 let brightness = 0;
 
@@ -50,6 +51,8 @@ const handleGuess = () => {
     const restart = document.getElementById("restart");
     restart.style.display = "block";
     brightness = 0;
+
+    pokemon.blur();
   } else {
     const pokemonMessage = document.getElementById("pokemonMessage");
     pokemonMessage.style.display = "block";
