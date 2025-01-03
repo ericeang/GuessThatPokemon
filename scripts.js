@@ -3,6 +3,7 @@ let brightness = 0;
 
 const fetchData = async () => {
   try {
+    // Set initial displays for sprite, message, and restart button to none.
     const img = document.getElementById("pokemonSprite");
     img.style.display = "none";
 
@@ -12,10 +13,12 @@ const fetchData = async () => {
     const restart = document.getElementById("restart");
     restart.style.display = "none";
 
+    // Get random pokemon from 1 to 151
     const randomIndex = Math.floor(Math.random() * 151) + 1;
     const genOnePokemon = `https://pokeapi.co/api/v2/pokemon/${randomIndex}`;
-    const response = await fetch(genOnePokemon);
 
+    //
+    const response = await fetch(genOnePokemon);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -23,7 +26,7 @@ const fetchData = async () => {
     const data = await response.json();
     pokemonName = data.name;
 
-    const pokemonSprite = data.sprites.front_default;
+    const pokemonSprite = data.sprites.other["official-artwork"].front_default;
     img.src = pokemonSprite;
     img.style.display = "block";
     img.style.filter = "brightness(0)";
