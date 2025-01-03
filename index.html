@@ -13,7 +13,14 @@
       <button id="restart" onClick="fetchData()">Play again</button>
       <img src="" alt="Pokemon Sprite" id="pokemonSprite" />
       <div class="guessWrapper">
-        <input type="text" autocomplete="off" id="pokemonGuess" />
+        <input
+          id="pokemonGuess"
+          type="text"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
         <button onClick="handleGuess()" id="pokemonSubmit">Guess</button>
       </div>
     </div>
